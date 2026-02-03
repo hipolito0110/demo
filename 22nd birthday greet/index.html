@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 22nd Birthday My Love 💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffeef8 0%, #fff0f5 25%, #fce4ec 50%, #f8e1f4 75%, #fff5f8 100%);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            overflow-y: auto;
+            position: relative;
+            padding: 40px 20px;
+        }
+
+        /* Animated gradient background */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ffeef8, #fff0f5, #fce4ec, #f8e1f4, #e8f5e9, #fff5f8);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            z-index: -3;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Bokeh effects */
+        .bokeh {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(1px);
+            opacity: 0.6;
+            animation: floatBokeh 8s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        .bokeh:nth-child(1) { width: 80px; height: 80px; background: radial-gradient(circle, rgba(255,182,193,0.4) 0%, transparent 70%); top: 10%; left: 5%; animation-delay: 0s; }
+        .bokeh:nth-child(2) { width: 120px; height: 120px; background: radial-gradient(circle, rgba(255,218,233,0.5) 0%, transparent 70%); top: 20%; right: 10%; animation-delay: 1s; }
+        .bokeh:nth-child(3) { width: 60px; height: 60px; background: radial-gradient(circle, rgba(230,190,255,0.4) 0%, transparent 70%); bottom: 30%; left: 15%; animation-delay: 2s; }
+        .bokeh:nth-child(4) { width: 100px; height: 100px; background: radial-gradient(circle, rgba(255,228,225,0.5) 0%, transparent 70%); bottom: 15%; right: 20%; animation-delay: 3s; }
+        .bokeh:nth-child(5) { width: 90px; height: 90px; background: radial-gradient(circle, rgba(255,192,203,0.4) 0%, transparent 70%); top: 50%; left: 8%; animation-delay: 4s; }
+        .bokeh:nth-child(6) { width: 70px; height: 70px; background: radial-gradient(circle, rgba(255,240,245,0.6) 0%, transparent 70%); top: 70%; right: 5%; animation-delay: 2.5s; }
+
+        @keyframes floatBokeh {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+            50% { transform: translateY(-20px) scale(1.1); opacity: 0.7; }
+        }
+
+        /* Floating hearts */
+        .hearts-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            animation: floatUp 10s linear infinite;
+            opacity: 0;
+            filter: drop-shadow(0 0 10px rgba(255,182,193,0.5));
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0.5); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(-100vh) rotate(720deg) scale(1); opacity: 0; }
+        }
+
+        /* Sparkles */
+        .sparkle {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 2px rgba(255,255,255,0.8), 0 0 20px 4px rgba(255,192,203,0.6);
+            animation: sparkle 2s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Fairy lights */
+        .fairy-lights {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .light {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle, #fff9c4 0%, #ffecb3 50%, transparent 70%);
+            border-radius: 50%;
+            box-shadow: 0 0 15px 5px rgba(255,236,179,0.6), 0 0 30px 10px rgba(255,183,77,0.3);
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.4; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Main card */
+        .card {
+            position: relative;
+            width: 90%;
+            max-width: 600px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.95) 0%, rgba(255,240,245,0.95) 50%, rgba(255,228,235,0.95) 100%);
+            border-radius: 30px;
+            padding: 50px 40px;
+            box-shadow: 
+                0 25px 80px rgba(255,182,193,0.4),
+                0 10px 40px rgba(255,105,180,0.2),
+                inset 0 2px 10px rgba(255,255,255,0.9),
+                0 0 100px rgba(255,192,203,0.3);
+            text-align: center;
+            z-index: 10;
+            overflow: hidden;
+            animation: cardGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes cardGlow {
+            0%, 100% { box-shadow: 0 25px 80px rgba(255,182,193,0.4), 0 10px 40px rgba(255,105,180,0.2), inset 0 2px 10px rgba(255,255,255,0.9), 0 0 100px rgba(255,192,203,0.3); }
+            50% { box-shadow: 0 25px 80px rgba(255,182,193,0.6), 0 10px 40px rgba(255,105,180,0.4), inset 0 2px 10px rgba(255,255,255,0.9), 0 0 150px rgba(255,192,203,0.5); }
+        }
+
+        /* Decorative border glow */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #ffb6c1, #ffc0cb, #dda0dd, #ffb6c1, #ff69b4, #ffb6c1);
+            background-size: 400% 400%;
+            border-radius: 32px;
+            z-index: -1;
+            animation: borderGlow 6s ease infinite;
+            filter: blur(2px);
+        }
+
+        @keyframes borderGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floral decorations */
+        .floral-top-left, .floral-top-right, .floral-bottom-left, .floral-bottom-right {
+            position: absolute;
+            font-size: 40px;
+            opacity: 0.8;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .floral-top-left { top: 15px; left: 20px; transform: rotate(-15deg); animation: floralSway 5s ease-in-out infinite; }
+        .floral-top-right { top: 15px; right: 20px; transform: rotate(15deg); animation: floralSway 5s ease-in-out infinite reverse; }
+        .floral-bottom-left { bottom: 15px; left: 20px; transform: rotate(15deg); animation: floralSway 6s ease-in-out infinite; }
+        .floral-bottom-right { bottom: 15px; right: 20px; transform: rotate(-15deg); animation: floralSway 6s ease-in-out infinite reverse; }
+
+        @keyframes floralSway {
+            0%, 100% { transform: rotate(-15deg) scale(1); }
+            50% { transform: rotate(-10deg) scale(1.05); }
+        }
+
+        /* Age badge */
+        .age-badge {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #ff69b4, #ff1493, #ff69b4);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 25px;
+            box-shadow: 
+                0 8px 30px rgba(255,105,180,0.5),
+                inset 0 2px 10px rgba(255,255,255,0.4);
+            animation: pulse 2s ease-in-out infinite;
+            position: relative;
+        }
+
+        .age-badge::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border: 2px solid rgba(255,105,180,0.3);
+            border-radius: 50%;
+            animation: ripple 2s ease-out infinite;
+        }
+
+        @keyframes ripple {
+            0% { transform: scale(0.8); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .age-badge span {
+            font-family: 'Great Vibes', cursive;
+            font-size: 48px;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Main title */
+        .title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 52px;
+            background: linear-gradient(135deg, #ff69b4, #ff1493, #c71585, #ff69b4);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textShimmer 4s ease infinite;
+            margin-bottom: 10px;
+            line-height: 1.3;
+            text-shadow: none;
+            filter: drop-shadow(0 2px 4px rgba(255,105,180,0.3));
+        }
+
+        @keyframes textShimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .subtitle {
+            font-family: 'Great Vibes', cursive;
+            font-size: 36px;
+            color: #ff69b4;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Divider */
+        .divider {
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffb6c1, #ff69b4, #ffb6c1, transparent);
+            margin: 25px auto;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '💕';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            background: white;
+            padding: 0 10px;
+        }
+
+        /* Message */
+        .message {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+
+        .message p {
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            color: #ff69b4;
+            font-weight: 500;
+        }
+
+        /* Hearts row */
+        .hearts-row {
+            font-size: 24px;
+            letter-spacing: 10px;
+            animation: heartBeat 1.5s ease-in-out infinite;
+            margin: 20px 0;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+        }
+
+        /* Signature */
+        .signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 28px;
+            color: #ff69b4;
+            margin-top: 20px;
+        }
+
+        /* Photo frame */
+        .photo-frame {
+            width: 180px;
+            height: 180px;
+            margin: 20px auto;
+            border-radius: 50%;
+            border: 4px solid #ffb6c1;
+            padding: 5px;
+            background: white;
+            box-shadow: 0 10px 40px rgba(255,182,193,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.5) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        /* Light flares */
+        .flare {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .flare-1 { top: -100px; right: -100px; animation: flareMove 10s ease-in-out infinite; }
+        .flare-2 { bottom: -100px; left: -100px; animation: flareMove 12s ease-in-out infinite reverse; }
+
+        @keyframes flareMove {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+            50% { transform: translate(30px, 30px) scale(1.2); opacity: 0.8; }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .card { padding: 40px 25px; }
+            .title { font-size: 38px; }
+            .subtitle { font-size: 26px; }
+            .age-badge { width: 80px; height: 80px; }
+            .age-badge span { font-size: 36px; }
+            .floral-top-left, .floral-top-right, .floral-bottom-left, .floral-bottom-right { font-size: 28px; }
+            .photo-frame { width: 140px; height: 140px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated background gradient -->
+    <div class="bg-gradient"></div>
+
+    <!-- Bokeh effects -->
+    <div class="bokeh"></div>
+    <div class="bokeh"></div>
+    <div class="bokeh"></div>
+    <div class="bokeh"></div>
+    <div class="bokeh"></div>
+    <div class="bokeh"></div>
+
+    <!-- Light flares -->
+    <div class="flare flare-1"></div>
+    <div class="flare flare-2"></div>
+
+    <!-- Floating hearts container -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Fairy lights -->
+    <div class="fairy-lights" id="fairyLights"></div>
+
+    <!-- Sparkles container -->
+    <div id="sparklesContainer"></div>
+
+    <!-- Main card -->
+    <div class="card">
+        <!-- Floral decorations -->
+        <div class="floral-top-left">🌸</div>
+        <div class="floral-top-right">🌷</div>
+        <div class="floral-bottom-left">🌺</div>
+        <div class="floral-bottom-right">🌹</div>
+
+        <!-- Age badge -->
+        <div class="age-badge">
+            <span>22</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="title">Happy 22nd Birthday</h1>
+        <h2 class="subtitle">My Love</h2>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+
+        <!-- Photo frame placeholder -->
+        <div class="photo-frame">
+            <img src="picture.jpg" alt="Birthday Girl" id="birthdayPhoto">
+        </div>
+
+        <!-- Hearts row -->
+        <div class="hearts-row">💝 💖 💗 💕 💝</div>
+
+        <!-- Message -->
+        <div class="message">
+            <p>Happy 22nd Birthday, my love! 🥰 Every day with you is a <span class="highlight">blessing</span>, and I'm so proud of the amazing person you are your kindness, your strength, and your <span class="highlight">beautiful heart</span> inspire me constantly.</p>
+            <p>Watching you grow and shine makes me feel so <span class="highlight">lucky to be by your side</span>. Here's to more laughter, love, and unforgettable memories together.</p>
+            <p><span class="highlight">I love you so much!</span> 💕✨</p>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider"></div>
+
+        <!-- Signature -->
+        <div class="signature">Forever Yours 💕</div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const container = document.getElementById('heartsContainer');
+            const hearts = ['💕', '💗', '💖', '💝', '💓', '💞', '🤍', '💜', '🩷', '🩵'];
+            
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                heart.style.animationDuration = (Math.random() * 10 + 8) + 's';
+                heart.style.animationDelay = Math.random() * 15 + 's';
+                container.appendChild(heart);
+            }
+        }
+
+        // Create fairy lights
+        function createFairyLights() {
+            const container = document.getElementById('fairyLights');
+            
+            for (let i = 0; i < 25; i++) {
+                const light = document.createElement('div');
+                light.className = 'light';
+                light.style.left = Math.random() * 100 + '%';
+                light.style.top = Math.random() * 100 + '%';
+                light.style.animationDelay = Math.random() * 3 + 's';
+                light.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                container.appendChild(light);
+            }
+        }
+
+        // Create sparkles
+        function createSparkles() {
+            const container = document.getElementById('sparklesContainer');
+            
+            for (let i = 0; i < 20; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 2 + 's';
+                sparkle.style.animationDuration = (Math.random() * 1.5 + 1.5) + 's';
+                container.appendChild(sparkle);
+            }
+        }
+
+        // Initialize
+        createHearts();
+        createFairyLights();
+        createSparkles();
+
+        // Add continuous heart generation
+        setInterval(() => {
+            const container = document.getElementById('heartsContainer');
+            const hearts = ['💕', '💗', '💖', '💝', '💓', '💞', '🤍', '💜', '🩷'];
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            heart.style.animationDuration = (Math.random() * 8 + 8) + 's';
+            container.appendChild(heart);
+            
+            // Remove heart after animation
+            setTimeout(() => heart.remove(), 16000);
+        }, 1500);
+    </script>
+</body>
+</html>
